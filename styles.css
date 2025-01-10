@@ -53,7 +53,7 @@ h1 {
 }
 
 .controls button:hover {
-    background-color: #2d4adf;
+    background-color: purple;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(58, 90, 249, 0.25);
 }
