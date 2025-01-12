@@ -15,15 +15,25 @@ const BREAK_TIME = 5 * 60; // 5 minutes in seconds
 function updateDisplay(timeLeft) {
     const minutes = Math.floor(timeLeft / 60);
     const seconds = timeLeft % 60;
+    const timeString = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Update the display
     minutesDisplay.textContent = minutes.toString().padStart(2, '0');
     secondsDisplay.textContent = seconds.toString().padStart(2, '0');
+    
+    // Update the page title
+    document.title = `${timeString} - Pomodoro Timer`;
 }
 
 function switchMode() {
     isWorkTime = !isWorkTime;
     timeLeft = isWorkTime ? WORK_TIME : BREAK_TIME;
     modeText.textContent = isWorkTime ? 'Work Time' : 'Break Time';
-    toggleModeButton.textContent = isWorkTime ? 'Rest Mode' : 'Work Mode';
+    
+    // Update the icon
+    const icon = toggleModeButton.querySelector('i');
+    icon.className = isWorkTime ? 'fas fa-moon' : 'fas fa-sun';
+    
     updateDisplay(timeLeft);
 }
 
@@ -55,7 +65,11 @@ function resetTimer() {
     isWorkTime = true;
     timeLeft = WORK_TIME;
     modeText.textContent = 'Work Time';
-    toggleModeButton.textContent = 'Rest Mode';
+    
+    // Reset the icon
+    const icon = toggleModeButton.querySelector('i');
+    icon.className = 'fas fa-moon';
+    
     updateDisplay(timeLeft);
     startButton.textContent = 'Start';
 }

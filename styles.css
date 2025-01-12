@@ -19,6 +19,7 @@ body {
     max-width: 420px;
     width: 90%;
     backdrop-filter: blur(10px);
+    position: relative;
 }
 
 h1 {
@@ -53,7 +54,7 @@ h1 {
 }
 
 .controls button:hover {
-    background-color: purple;
+    background-color: #2d4adf;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(58, 90, 249, 0.25);
 }
@@ -85,4 +86,34 @@ h1 {
 .controls button#reset:hover {
     background-color: #4b5563;
     box-shadow: 0 4px 12px rgba(107, 114, 128, 0.25);
+}
+
+.mode-toggle {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    color: #6b7280;
+    transition: all 0.2s ease;
+}
+
+.mode-toggle:hover {
+    color: #3a5af9;
+    transform: translateY(-2px);
+}
+
+.mode-toggle:active {
+    transform: translateY(0);
+}
+
+.mode-toggle .fa-moon {
+    color: #6366f1;
+}
+
+.mode-toggle .fa-sun {
+    color: #f59e0b;
 } 
